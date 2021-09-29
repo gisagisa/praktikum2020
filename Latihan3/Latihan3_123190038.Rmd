@@ -1,0 +1,106 @@
+---
+title: "Latihan3_123190038"
+author: "Gisani MR"
+date: "9/29/2021"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(dslabs)
+data(murders) 
+```
+
+### Latihan Modul 3
+
+
+#### 1. Gunakan fungsi str untuk memeriksa struktur objek “murders”. Manakah dari pernyataan berikut ini yang paling menggambarkan karakter dari tiap variabel pada data frame? 
+  a. Terdiri dari 51 negara. 
+  b. Data berisi tingkat pembunuhan pada 50 negara bagian dan DC. 
+  c. Data berisi Nama negara bagian, singkatan dari nama negara bagian,           wilayah negara bagian, dan populasi negara bagian serta jumlah total         pembunuhan pada tahun 2010. 
+  d. str tidak menunjukkan informasi yang relevan. 
+
+**Jawaban**
+
+```{r}
+str(murders)
+```
+
+**Maka jawaban yang benar adalah "C" **
+
+
+#### 2. Sebutkan apa saja nama kolom yang digunakan pada data frame
+.
+
+**Jawaban**
+```{r}
+names(murders)
+```
+**Nama kolom yang digunakan pada data frame adalah : state, abb, region, pupulation dan total**
+
+
+#### 3. Gunakan operator aksesor ($) untuk mengekstrak informasi singkatan negara dan menyimpannya pada objek “a”. Sebutkan jenis class dari objek tersebut
+. 
+  
+**Jawaban**
+```{r}
+a <- murders$abb
+a
+class(a)
+```
+**objek a merupakan character**
+
+
+#### 4. Gunakan tanda kurung siku untuk mengekstrak singkatan negara dan menyimpannya pada objek “b”. Tentukan apakah variabel “a” dan “b” bernilai sama
+? 
+  
+**Jawaban**
+```{r}
+a <- murders$abb
+b <- murders['abb']
+```
+variabel a
+````{r}
+a
+```
+variabel b 
+````{r}
+b
+```
+kelas a
+```{r}
+class(a)
+```
+kelas b
+```{r}
+class(b)
+```
+
+**variabel a dan b memiliki isi yang sama namun dengan tipe yang berbeda. a merupakan vector charachter sementa b adalah data frame**
+
+
+#### 5. Variabel region memiliki tipe data: factor. Dengan satu baris kode, gunakan fungsi level dan length untuk menentukan jumlah region yang dimiliki dataset
+. 
+  
+**Jawaban**
+```{r}
+length(murders$region)
+levels(murders$region) 
+```
+**Jumlah keseluruhan region yang dimiliki oleh dataset adalah 51 dengan 4 jenis diantaranya :  "Northeast" "South" "North Central" "West" **
+
+
+#### 6. Fungsi table dapat digunakan untuk ekstraksi data pada tipe vektor dan menampilkan frekuensi dari setiap elemen. Dengan menerapkan fungsi tersebut, dapat diketahui jumlah state pada tiap region. Gunakan fungsi table dalam satu baris kode untuk menampilkan tabel baru yang berisi jumlah state pada tiap region
+.
+  
+**Jawaban**
+```{r}
+table(murders$region)
+```
+
+
